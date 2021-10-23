@@ -1,25 +1,73 @@
-import logo from './logo.svg';
+// import React, { Component } from "react";
+// import './App.css'
+
+// class App extends Component {
+//   constructor() {
+//     super()
+//     this.state= {
+//       list: [],
+//       item: ""
+//     }
+//   }
+
+
+//   render() {
+//     return(
+//       <div>
+//         <h1> TODO LIST</h1>
+//         <input type='search' placeholder='enter' onChange={(event) => this.setState({item: event.target.value}) }/>
+//         <button onClick={() => {
+//           const Arr = [ ...this.state.list];
+//           Arr.push(this.state.item);
+//           this.setState({list: Arr}); 
+//         }}> ADD </button>
+//         <div>
+//           {
+//             this.state.list.map ((item) => {
+//               return <h1>{item}</h1>
+//             })
+//           }
+//         </div>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+
+
+import React, { useState } from "react";
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [ list, setList ] = useState([]);
+  const [ item, setItem ] = useState('');
+   
+
+   
+    return (
+      <div>
+        <h1> TODO LIST</h1>
+        <input type='search' placeholder='enter' onChange={event => setItem(event.target.value)}/>
+        <button onClick={() => {
+          const See = [ ...list ];
+          See.push(item)
+          setList(See);
+          console.log(list );
+         
+
+        }} > ADD </button>
+        <div>
+          {
+            list.map((item) => {
+              return <h1>{item}</h1>
+            })
+          }
+        </div>
+      </div>
+    )
+  }
+
 
 export default App;
